@@ -1,0 +1,84 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container{
+  width: 100%;
+  height: 100vh;
+  background-color: #ADC2A9;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 30px;
+
+
+}
+.container__show{
+  width: 50%;
+  height: 100%;
+  border: 1px solid black;
+
+}
+.container__editor{
+  width: 50%;
+  height: 100%;
+
+  padding: 10px;
+}
+.container__editor .editor{
+  width: 100%;
+  height: 300px;
+  padding: 10px;
+  border: 2px solid black;
+  margin-bottom: 20px;
+
+}
+
+.container ul,
+.container ol{
+  padding: 0 20px;
+}
+.block__control,.inline__control{
+  display: flex;
+  gap: 10px 20px;
+  margin-bottom: 10px;
+}
+.btn{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid black;
+
+  padding: 10px;
+  cursor: pointer;
+}
+.DraftEditor-root{
+  width: 100%;
+  height: 100%;
+}
+.DraftEditor-editorContainer{
+  width: 100%;
+  height: 100%;
+}
+.public-DraftEditor-content{
+  width: 100%;
+  height: 100%;
+  background-color:#FEF5ED ;
+  padding: 10px;
+
+}
+.container__editor .public-DraftEditor-content{
+  background-color: transparent;
+}
+
+.btn.active{
+  background-color: red;
+}
+.btn:hover{
+  background-color: #D3E4CD;
+}
