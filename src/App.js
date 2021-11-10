@@ -1,42 +1,35 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { convertToHTML } from 'draft-convert';
-import { stateToHTML } from 'draft-js-export-html';
-import {
-  Editor,
-  EditorState,
-  RichUtils,
-  getDefaultKeyBinding,
-  KeyBindingUtil,
-  // convertFromRaw,
-  // convertToRaw,
-} from 'draft-js';
+// import { convertToHTML } from 'draft-convert';
+// import { stateToHTML } from 'draft-js-export-html';
+import { Editor, EditorState, RichUtils, getDefaultKeyBinding } from 'draft-js';
 import './style.css';
 import BlockStyle from './components/BlockStyle';
 import InlineStyle from './components/InlineStyle';
 
 import styleMap from './utils/StyleMap';
 const App = () => {
-  const { hasCommandModifier } = KeyBindingUtil;
   const [editorState, setEditorState] = React.useState(() =>
     EditorState.createEmpty(),
   );
   const [review, setReview] = useState(() => EditorState.createEmpty());
-  const [text, setText] = useState({
-    __html: ' ',
-  });
+  // const [text, setText] = useState({
+  //   __html: ' ',
+  // });
   const ref = useRef();
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.focus();
+    }
+  }, []);
   const handleSave = (e) => {
     e.preventDefault();
-    // let html = stateToHTML(editorState.getCurrentContent());
-    // const b = convertToRaw(editorState.getCurrentContent());
-    // const a = convertFromRaw(b);
     setReview(editorState);
-    const content = convertToHTML(editorState.getCurrentContent());
-    const newContent = {
-      __html: content,
-    };
-
-    setText(newContent);
+    //Show not use Editor
+    // const content = convertToHTML(editorState.getCurrentContent());
+    // const newContent = {
+    //   __html: content,
+    // };
+    // setText(newContent);
     setEditorState(() => EditorState.createEmpty());
   };
   const handleOnChange = (editorState) => {
