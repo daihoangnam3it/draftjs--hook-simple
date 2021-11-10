@@ -59,6 +59,7 @@ const App = () => {
     }
   };
   const myKeyBindingFn = (e) => {
+    // Key X
     if (e.keyCode === 88) {
       return 'CODE';
     }
@@ -83,7 +84,7 @@ const App = () => {
   return (
     <div className='container'>
       <div className='container__show'>
-        <Editor editorState={review} readOnly />
+        <Editor editorState={review} readOnly customStyleMap={styleMap} />
       </div>
       <div onClick={() => handleFocus()} className='container__editor'>
         {/* <div>
